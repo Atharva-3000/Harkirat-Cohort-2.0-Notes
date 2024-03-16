@@ -1,32 +1,37 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from "react";
-import { CountContext } from "./context";
+import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
+import { countAtom } from "./store/atoms/count";
 const App = () => {
-  const [count, setCount] = useState(0);
   return (
     <div>
-      <CountContext.Provider value={count}>
-        <Count setCount={setCount} />
-      </CountContext.Provider>
+      {/* anything that uses the recoil logic needs to be wrapped inside RecoilRoot */}
+      <RecoilRoot>
+        <Count />
+      </RecoilRoot>
     </div>
   );
 };
-function Count({ setCount }) {
+function Count() {
   return (
     <div>
       <CountRenderer />
-      <Buttons setCount={setCount} />
+      <Buttons />
     </div>
   );
 }
 
 function CountRenderer() {
-  const count = useContext(CountContext);
+  // since no updation is value is neede here we will use
+  // since we only need the value, we will
+
+  const count = useRecoilValue(countAtom);
   return <div>{count}</div>;
 }
 
-function Buttons({ setCount }) {
-  const count = useContext(CountContext);
+function Buttons() {
+  // since we also need to update the value, we will use
+  // useRecoilState
+  const [count, setCount] = useRecoilState(countAtom);
   return (
     <div>
       <button onClick={() => setCount(count + 1)}>Increment</button>

@@ -4,3 +4,16 @@
 
 # Recoil Framework
 A cleaner way to store the state of your application. 
+
+## Recoil
+It has a concept of atom to store the data. Atom is similar to useState, allows to deifne states in atom world, rather than a components.
+
+An atom can be defined outside 
+
+### Things to learn:
+1. RecoilRoot
+2. atom
+3. useRecoilState
+4. useRecoilValue
+5. useSetRecoilState
+6. selector
