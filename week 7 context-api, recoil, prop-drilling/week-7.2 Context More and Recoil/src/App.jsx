@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
-import { countAtom } from "./store/atoms/count";
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
+import { countAtom, evenSelector } from "./store/atoms/count";
+import { useMemo } from "react";
 const App = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const App = () => {
   );
 };
 function Count() {
+  console.log("re-render");
   return (
     <div>
       <CountRenderer />
@@ -19,23 +21,38 @@ function Count() {
     </div>
   );
 }
-
 function CountRenderer() {
   // since no updation is value is neede here we will use
   // since we only need the value, we will
-
   const count = useRecoilValue(countAtom);
-  return <div>{count}</div>;
+  return (
+    <div>
+      <b>{count}</b>
+      <EvenCountRenderer />
+    </div>
+  );
 }
+function EvenCountRenderer() {
+  const isEven = useRecoilValue(evenSelector);
+  return(
+    <div>
+      {isEven ? "It is even":"It is odd"}
+    </div>
+  )
 
+
+}
 function Buttons() {
   // since we also need to update the value, we will use
   // useRecoilState
-  const [count, setCount] = useRecoilState(countAtom);
+  // const [count, setCount] = useRecoilState(countAtom);
+  // making it more performant
+  const setCount = useSetRecoilState(countAtom);
+  console.log("button re-render");
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <button onClick={() => setCount((count) => count + 1)}>Increment</button>
+      <button onClick={() => setCount((count) => count - 1)}>Decrement</button>
     </div>
   );
 }

@@ -1,8 +1,22 @@
 //  define an atom
 
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 export const countAtom = atom({
-    key:'countAtom',
-    default:0
+  key: "countAtom",
+  default: 0,
+});
+
+
+export const evenSelector=selector({
+    key:"evenSelector",
+    //get is used to get the value of the atom 
+    get:({get})=>{
+        const count=get(countAtom);
+        return count%2==0
+    }
 })
+
+// task
+// todo creation with filtering using recoil
+// will depend upon todos and filter
