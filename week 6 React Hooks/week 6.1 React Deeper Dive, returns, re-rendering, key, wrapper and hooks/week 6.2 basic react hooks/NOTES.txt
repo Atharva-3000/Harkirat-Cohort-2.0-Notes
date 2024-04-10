@@ -1,0 +1,9 @@
+side effects are those things that get out of the scope of a functional scope of a React Component.
+These can affect other components, interact with the browser or perform asynchronous data fetching.
+
+1. useState: Helps describe the state of the application.
+2. useEffect: used for performing side effects in a component. same as "componentDidMount/DidUpdate/WillUnmount"
+3. useCallback:    
+4. useMemo
+5. useRef
+6. useContext

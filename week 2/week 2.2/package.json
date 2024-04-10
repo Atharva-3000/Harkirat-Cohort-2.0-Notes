@@ -1,0 +1,16 @@
+{
+  "name": "week-2.2",
+  "version": "1.0.0",
+  "description": "//  Node.js is used for backend.\r // We can do the following using node\r // Create CLIs\r // Create a video player\r // create a game\r // ⚠️⚠️ create an HTTP Server: things which let backend and frontend commmunicate, authentication, exposes to the internet,\r // it is some code that follows the http protocol and is able to communicate with clients",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2"
+  }
+}
