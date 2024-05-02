@@ -1,9 +1,11 @@
+// backend/user/index.js
 const express = require('express');
+const userRouter = require("./user");
+const accountRouter = require("./account");
+
 const router = express.Router();
-const userRouter = require('./user')
 
-// /api/v1/
-
-// incremental routers to be used in main index.js
 router.use("/user", userRouter);
+router.use("/account", accountRouter);
+
 module.exports = router;

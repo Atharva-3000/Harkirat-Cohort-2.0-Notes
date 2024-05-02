@@ -1,6 +1,9 @@
 // backend/db.js
 const mongoose = require('mongoose');
 
+mongoose.connect("mongodb+srv://atharva:powxu02@cluster0.hwimo4p.mongodb.net/").then(()=>{
+    console.log("Connected to MongoDB");
+})
 
 const userSchema = new mongoose.Schema({
     username: {
