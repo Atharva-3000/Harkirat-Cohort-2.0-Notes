@@ -32,8 +32,10 @@ userRouter.post('/signup', async (c) => {
       }
     });
 
-    const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
-    return c.json({ jwt });
+    const token = await sign({ id: user.id }, c.env.JWT_SECRET);
+    return c.json({
+      jwt: token
+    });
   } catch (e) {
     c.status(403);
     return c.json({ error: "error while signing up/ Email already in Use" });
@@ -64,5 +66,5 @@ userRouter.post('/signin', async (c) => {
   }
 
   const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
-  return c.json({ jwt });
+  return c.json(jwt);
 })
