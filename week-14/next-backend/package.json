@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-backend",
+  "name": "next-backend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.15.1",
     "axios": "^1.7.2",
     "next": "14.2.4",
+    "prisma": "^5.15.1",
     "react": "^18",
     "react-dom": "^18"
   },
