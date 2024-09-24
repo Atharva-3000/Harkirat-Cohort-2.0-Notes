@@ -10,6 +10,7 @@ export default async function Page() {
   const session = await getServerSession(authOptions);
   if (session?.user) {
     redirect('/dashboard')
+    // this will check the new deploy.yml github workflow, will make several file changes
   } else {
     redirect('/api/auth/signin')
   }
