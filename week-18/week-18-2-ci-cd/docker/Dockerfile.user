@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package.json package-lock.json turbo.json tsconfig.json ./
 
+# since we are using a monorepo, we need to copy the apps folder
 COPY apps ./apps
 COPY packages ./packages
 
